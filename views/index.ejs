@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title>Heroes List</title>
+    <!-- 加载 bootstrap 样式表 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .hero-image {
+            border-radius: 50%;
+        }
+
+        .table td:first-child {
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-name {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Heroes List</h1>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>英雄姓名</th>
+                    <th>出场次数</th>
+                    <th>出场率</th>
+                    <th>被禁率</th>
+                    <th>胜场次数</th>
+                    <th>胜率</th>
+                    <th>场均击杀</th>
+                    <th>场均死亡</th>
+                    <th>场均助攻</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% heroes.forEach(function(hero) { %>
+                    <tr>
+                        <td>
+                            <div>
+                                <img src="<%= hero.hero_img %>" alt="<%= hero.hero_name %>"
+                                    class="img-fluid hero-image">
+                            </div>
+                            <div class="hero-name">
+                                <%= hero.hero_name %>
+                            </div>
+                        </td>
+                        <td>
+                            <%= hero.hero_exit_num %>
+                        </td>
+                        <td>
+                            <%= hero.hero_exit_rate %>%
+                        </td>
+                        <td>
+                            <%= hero.hero_ban %>%
+                        </td>
+                        <td>
+                            <%= hero.hero_wins_num %>
+                        </td>
+                        <td>
+                            <%= hero.hero_wins_rate %>%
+                        </td>
+                        <td>
+                            <%= hero.hero_kill_num %>
+                        </td>
+                        <td>
+                            <%= hero.hero_die_num %>
+                        </td>
+                        <td>
+                            <%= hero.hero_assisting_num %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <!-- 加载 bootstrap JavaScript 插件 -->
+    <script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
